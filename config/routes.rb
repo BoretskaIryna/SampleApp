@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
-  get 'password_resets/new'
-  get 'password_resets/edit'
+  devise_for :customers, controllers: {
+      sessions: 'customers/sessions',
+      registrations: 'customers/registrations'
+  }
+
+  devise_scope :customer do
+    get "/customers" => "customers/customers#index"
+    get "/customer" => "customers/customers#show"
+    #get "/customer" => "customers/customers#show"
+    delete "/customers/delete" => "customers/customers#destroy"
+  end
+
+  #get 'password_resets/new'
+  #get 'password_resets/edit'
 
 
   resources :users do
@@ -24,7 +36,7 @@ Rails.application.routes.draw do
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
 
-  get 'sessions/new'
+  #get 'sessions/new'
 
   get  '/login',   to: 'sessions#new'
   post '/login',   to: 'sessions#create'
