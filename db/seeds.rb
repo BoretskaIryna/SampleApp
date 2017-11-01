@@ -40,7 +40,7 @@ following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
 
-Customer.create!(name:  "Example User",
+Customer.create!(name:  "Example Customer",
              email: "example@railstutorial.org",
              password:              "foobar",
              password_confirmation: "foobar",

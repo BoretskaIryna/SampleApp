@@ -7,7 +7,7 @@ class Customers::CustomersController < Devise::SessionsController
   end
 
   def show
-    @customer = Customer.find(params[:format])
+    @customer = Customer.find(params[:id])
   end
 
   def destroy
