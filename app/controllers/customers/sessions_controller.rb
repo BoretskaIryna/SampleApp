@@ -6,10 +6,13 @@ class Customers::SessionsController < Devise::SessionsController
   #   super
   # end
 
+
+
   # POST /resource/sign_in
   # def create
   #   super
   # end
+
 
   # DELETE /resource/sign_out
   # def destroy

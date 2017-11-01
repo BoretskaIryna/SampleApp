@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   devise_scope :customer do
     get "/customers" => "customers/customers#index"
-    get "/customer" => "customers/customers#show"
+    get "/customer" => "customers/customers/#show"
+    #get "/customer" => "customers/customers#show"
     #get "/customer" => "customers/customers#show"
     delete "/customers/delete" => "customers/customers#destroy"
   end

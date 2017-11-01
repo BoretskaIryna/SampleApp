@@ -44,12 +44,14 @@ Customer.create!(name:  "Example User",
              email: "example@railstutorial.org",
              password:              "foobar",
              password_confirmation: "foobar",
-             admin: true)
+             admin: true,
+             confirmed_at: Time.zone.now)
 
 Customer.create!(name:  "Foo Bar",
                  email: "foo@bar.org",
                  password:              "foobar",
-                 password_confirmation: "foobar")
+                 password_confirmation: "foobar",
+                 confirmed_at: Time.zone.now)
 
 98.times do |n|
   name  = Faker::Name.name
@@ -58,5 +60,6 @@ Customer.create!(name:  "Foo Bar",
   Customer.create!(name:  name,
                email: email,
                password:              password,
-               password_confirmation: password)
+               password_confirmation: password,
+               confirmed_at: Time.zone.now)
 end
