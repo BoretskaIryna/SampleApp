@@ -3,7 +3,7 @@
   <%= gravatar_for customer, size: 50 %>
   <%= link_to customer.name, customer %>
   <% if current_customer.admin? %>
-      | <%= link_to "delete", customers_delete_path(customer), method: :delete,
+      | <%= link_to "delete", customer , method: :delete,
                     data: { confirm: "Are you sure?" } %>
   <% end %>
 </li>

@@ -11,7 +11,7 @@ class Customers::CustomersController < Devise::SessionsController
   end
 
   def destroy
-    Customer.find(params[:format]).destroy
+    Customer.find(params[:id]).destroy
     flash[:success] = "Customer deleted"
     redirect_to customers_url
   end

@@ -4,6 +4,14 @@ class Customers::ConfirmationsController < Devise::ConfirmationsController
   #   super
   # end
 
+=begin
+  def new
+    @customer = Customer.find(params[:format]).confirm
+    self.resource = resource_class.
+
+  end
+=end
+
   # POST /resource/confirmation
   # def create
   #   super
@@ -25,4 +33,15 @@ class Customers::ConfirmationsController < Devise::ConfirmationsController
   # def after_confirmation_path_for(resource_name, resource)
   #   super(resource_name, resource)
   # end
+
+  def after_confirmation_path_for(resource_name, resource)
+    if signed_in?(resource_name)
+      signed_in_root_path(resource)
+    else
+      sign_in(resource)
+      root_url
+      #new_session_path(resource_name)
+    end
+  end
+
 end
