@@ -1,6 +1,7 @@
-class Customers::CustomersController < Devise::SessionsController
+class Customers::CustomersController < Devise::RegistrationsController
+  # DeviseController
   require 'will_paginate/array'
-  before_action :authenticate_customer!, only: [:index, :show, :destroy]
+  before_action :authenticate_scope!, only: [:index, :show, :destroy]
 
   def index
     @customers = Customer.where("confirmed_at IS NOT NULL").paginate(page: params[:page])
@@ -16,6 +17,7 @@ class Customers::CustomersController < Devise::SessionsController
     redirect_to customers_url
   end
 
+=begin
   private
 
   def authenticate_customer!
@@ -24,4 +26,5 @@ class Customers::CustomersController < Devise::SessionsController
       redirect_to new_customer_session_path
     end
   end
+=end
 end
